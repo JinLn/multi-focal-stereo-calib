@@ -1,0 +1,66 @@
+
+单相机标定：
+./calibrate -w [board_width] -h [board_height] -n [num_imgs] -s [square_size] -d [imgs_directory] -i [imgs_filename] -o [file_extension] -e [output_filename]
+
+./calibrate -w 9 -h 6 -n 27 -s 0.02423 -d "../calib_imgs/1/" -i "left" -o "cam_left.yml" -e "jpg"
+sprintf(img_file, "%s%06d.%s", imgs_directory, k, extension);
+./calibrate -w 17 -h 12 -n 84 -s 0.100 -d "../20201119calib/left/" -i "left" -o "cam_left.yml" -e "jpg"
+./calibrate -w 17 -h 12 -n 84 -s 0.100 -d "../20201119calib/center/" -i "center" -o "cam_center.yml" -e "jpg"
+./calibrate -w 17 -h 12 -n 84 -s 0.100 -d "../20201119calib/right/" -i "right" -o "cam_right.yml" -e "jpg"
+
+双目标定
+./calibrate_stereo -n [num_imgs] -u [left_cam_calib] -v [right_cam_calib] -L [left_img_dir] -R [right_img_dir] -l [left_img_prefix] -r [right_img_prefix] -o [output_calib_file] -e [file_extension]
+./calibrate_stereo -n 27 -u cam_left.yml -v cam_right.yml -L ../calib_imgs/1/ -R ../calib_imgs/1/ -l left -r right -o cam_stereo.yml -e jpg
+
+./calibrate_stereo -n 84 -u cam_left.yml -v cam_center.yml -L ../20201119calib/left/ -R ../20201119calib/center/ -l left -r center -o cam_01.yml -e jpg
+./calibrate_stereo -n 84 -u cam_left.yml -v cam_right.yml -L ../20201119calib/left/ -R ../20201119calib/right/ -l left -r right -o cam_02.yml -e jpg
+./calibrate_stereo -n 84 -u cam_center.yml -v cam_right.yml -L ../20201119calib/center/ -R ../20201119calib/right/ -l center -r right -o cam_12.yml -e jpg
+
+立体矫正
+./undistort_rectify -l [left_img_path] -r [right_img_path] -c [stereo_calib_file] -L [output_left_img] -R [output_right_img]
+
+./undistort_rectify -l ../calib_imgs/1/left1.jpg -r ../calib_imgs/1/right1.jpg -c cam_stereo.yml -L left.jpg -R right.jpg
+./undistort_rectify -l ../20201119calib/left/left1.jpg -r ../20201119calib/center/center1.jpg -c cam_01.yml -L l0.jpg -R r0.jpg
+
+./myundistort_rectify -l /home/jinln/jinln/stereo-calibration/20201119calib/org/0/*.jpg -r /home/jinln/jinln/stereo-calibration/20201119calib/org/1/*.jpg -c ../19/cam_01.yml -L /home/jinln/jinln/stereo-calibration/20201119calib/0/%06d.jpg -R /home/jinln/jinln/stereo-calibration/20201119calib/1/%06d.jpg
+
+./myundistort_rectify /home/jinln/jinln/stereo-calibration/20201119calib/org/0/*.jpg /home/jinln/jinln/stereo-calibration/20201119calib/org/1/*.jpg ../19/cam_01.yml /home/jinln/jinln/stereo-calibration/20201119calib/0/%06d.jpg /home/jinln/jinln/stereo-calibration/20201119calib/1/%06d.jpg
+
+./calibrate -w 17 -h 12 -n 121 -s 0.100 -d "../20201117calib/left/" -i "left" -o "cam_left.yml" -e "jpg"
+./calibrate -w 17 -h 12 -n 121 -s 0.100 -d "../20201117calib/center/" -i "center" -o "cam_center.yml" -e "jpg"
+./calibrate -w 17 -h 12 -n 121 -s 0.100 -d "../20201117calib/right/" -i "right" -o "cam_right.yml" -e "jpg"
+
+双目标定
+./calibrate_stereo -n [num_imgs] -u [left_cam_calib] -v [right_cam_calib] -L [left_img_dir] -R [right_img_dir] -l [left_img_prefix] -r [right_img_prefix] -o [output_calib_file] -e [file_extension]
+./calibrate_stereo -n 27 -u cam_left.yml -v cam_right.yml -L ../calib_imgs/1/ -R ../calib_imgs/1/ -l left -r right -o cam_stereo.yml -e jpg
+
+./calibrate_stereo -n 121 -u cam_left.yml -v cam_center.yml -L ../20201117calib/left/ -R ../20201117calib/center/ -l left -r center -o cam_01.yml -e jpg
+./calibrate_stereo -n 121 -u cam_left.yml -v cam_right.yml -L ../20201117calib/left/ -R ../20201117calib/right/ -l left -r right -o cam_02.yml -e jpg
+./calibrate_stereo -n 121 -u cam_center.yml -v cam_right.yml -L ../20201117calib/center/ -R ../20201117calib/right/ -l center -r right -o cam_12.yml -e jpg
+
+立体矫正
+./undistort_rectify -l [left_img_path] -r [right_img_path] -c [stereo_calib_file] -L [output_left_img] -R [output_right_img]
+
+./undistort_rectify -l ../calib_imgs/1/left1.jpg -r ../calib_imgs/1/right1.jpg -c cam_stereo.yml -L left.jpg -R right.jpg
+./undistort_rectify -l ../20201119calib/left/left1.jpg -r ../20201119calib/center/center1.jpg -c cam_01.yml -L l0.jpg -R r0.jpg
+
+
+
+./calibrate -w 17 -h 12 -n 69 -s 0.100 -d "../20201112calib/left/" -i "left" -o "cam_left.yml" -e "jpg"
+./calibrate -w 17 -h 12 -n 69 -s 0.100 -d "../20201112calib/center/" -i "center" -o "cam_center.yml" -e "jpg"
+./calibrate -w 17 -h 12 -n 69 -s 0.100 -d "../20201112calib/right/" -i "right" -o "cam_right.yml" -e "jpg"
+
+双目标定
+./calibrate_stereo -n [num_imgs] -u [left_cam_calib] -v [right_cam_calib] -L [left_img_dir] -R [right_img_dir] -l [left_img_prefix] -r [right_img_prefix] -o [output_calib_file] -e [file_extension]
+./calibrate_stereo -n 27 -u cam_left.yml -v cam_right.yml -L ../calib_imgs/1/ -R ../calib_imgs/1/ -l left -r right -o cam_stereo.yml -e jpg
+
+./calibrate_stereo -n 69 -u cam_left.yml -v cam_center.yml -L ../20201112calib/left/ -R ../20201112calib/center/ -l left -r center -o cam_01.yml -e jpg
+./calibrate_stereo -n 69 -u cam_left.yml -v cam_right.yml -L ../20201112calib/left/ -R ../20201112calib/right/ -l left -r right -o cam_02.yml -e jpg
+./calibrate_stereo -n 69 -u cam_center.yml -v cam_right.yml -L ../20201112calib/center/ -R ../20201112calib/right/ -l center -r right -o cam_12.yml -e jpg
+
+1125
+./calibrate -w 9 -h 6 -n 45 -s 0.0259 -d "../20201125calib/left/" -i "left" -o "cam_left.yml" -e "jpg"
+./calibrate -w 9 -h 6 -n 45 -s 0.0259 -d "../20201125calib/right/" -i "right" -o "cam_right.yml" -e "jpg"
+
+./calibrate_stereo -n 45 -u cam_left.yml -v cam_right.yml -L ../20201125calib/left/ -R ../20201125calib/right/ -l left -r right -o cam_02.yml -e jpg
+
