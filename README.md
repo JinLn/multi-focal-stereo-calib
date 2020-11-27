@@ -19,16 +19,6 @@ make
 
 Make sure your are in the `build` folder to run the executables.
 
-### Get images from webcams
-
-This is a small helper tool to grab frames from two webcams operating as a stereo pair. Run the following command to use it.
-
-```bash
-./read -w [img_width] -h [img_height] -d [imgs_directory] -e [file_extension]
-```
-
-Once it is running, hit any key to grab frames. Images are saved with prefixes `left` and `right` in the desired directory.
-
 
 ### Stereo calibration for extrinisics
 
