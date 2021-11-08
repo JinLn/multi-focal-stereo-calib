@@ -27,7 +27,9 @@ Make sure your are in the `build` folder to run the executables.Cancel changes
 
 ### Stereo calibration for extrinisics
 
-Once you have the intrinsics calibrated for both the left and the right cameras, you can use their intrinsics to calibrate the extrinsics between them.
+First, you must use [stereo-calibration](https://github.com/sourishg/stereo-calibration/) to get the intrinsics calibrated for both the left and the right cameras(cam_left.yml and cam_right.yml). 
+
+Second, Once you have the intrinsics calibrated for both the left and the right cameras, you can use their intrinsics to calibrate the extrinsics between them.
 
 ```bash
 ./calibrate_stereo -n [num_imgs] -u [left_cam_calib] -v [right_cam_calib] -L [left_img_dir] -R [right_img_dir] -l [left_img_prefix] -r [right_img_prefix] -o [output_calib_file] -e [file_extension]
