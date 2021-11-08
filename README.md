@@ -1,5 +1,5 @@
 ## OpenCV C++ multi focal stereo Camera Calibration
-浅红色文字：<font color="#dd0000"> The calibration program is modified, which can calibrate multi focal length stereo camera for MF-SLAM.：</font><br /> 
+浅红色文字：<font color="#dd0000"> The calibration program is modified, which can calibrate multi focal length stereo camera for MF-SLAM.</font><br /> 
 
 This repository contains some sources to calibrate the intrinsics of individual cameras and also the extrinsics of a stereo pair.
 
@@ -18,7 +18,7 @@ cmake ..
 make
 ```
 
-Make sure your are in the `build` folder to run the executables.
+Make sure your are in the `build` folder to run the executables.Cancel changes
 
 
 ### Stereo calibration for extrinisics
