@@ -1,5 +1,5 @@
 ## OpenCV C++ multi focal stereo Camera Calibration
-The calibration program is modified by [stereo-calibration](https://github.com/sourishg/stereo-calibration/), which can calibrate multi focal length stereo camera for MF-SLAM. 
+**The calibration program is modified by [stereo-calibration](https://github.com/sourishg/stereo-calibration/), which can calibrate multi focal length stereo camera for MF-SLAM. **
 
 This repository contains some sources to calibrate the intrinsics of individual cameras and also the extrinsics of a stereo pair.
 
