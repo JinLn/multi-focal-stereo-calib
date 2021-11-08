@@ -2,7 +2,8 @@
 **Attention:** The calibration program is modified by [stereo-calibration](https://github.com/sourishg/stereo-calibration/), which can calibrate multi focal length stereo camera for MF-SLAM.
 
 [MF-SLAM] Mingchi Feng, Jinglin Liu, Xin Wang, Chengnan Li, **[MF-SLAM: Multi-focal SLAM](https://link.springer.com/chapter/10.1007/978-3-030-89134-3_45)**.
-**DOI:** 10.1007/978-3-030-89134-3_45
+**DOI:** 10.1007/978-3-030-89134-3_45. 
+
 This repository contains some sources to calibrate the intrinsics of individual cameras and also the extrinsics of a stereo pair.
 
 ### Dependencies
